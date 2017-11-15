@@ -3,6 +3,7 @@
 * Студент: [Zalman Mataev](https://up.htmlacademy.ru/javascript/11/user/345423).
 
 * Наставник: [Евгений Карпов].
+  ссылка на профиль наставника в github.com: https://github.com/Paintrain86
 ---
 
 _Не удаляйте и не обращайте внимание на папки и файлы:_<br>
