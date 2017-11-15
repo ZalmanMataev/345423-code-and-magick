@@ -1,9 +1,8 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Zalman Mataev](https://up.htmlacademy.ru/javascript/11/user/345423).
+* Наставник: [Evgeny Karpov](https://github.com/Paintrain86).
 
-* Наставник: [Евгений Карпов].
-  ссылка на профиль наставника в github.com: https://github.com/Paintrain86
 ---
 
 _Не удаляйте и не обращайте внимание на папки и файлы:_<br>
