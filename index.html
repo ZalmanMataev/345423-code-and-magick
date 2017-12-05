@@ -187,17 +187,9 @@
   var wizardSpeed = 3;
   var wizardWidth =70;
 
-  var getFireball; //направление полёта фаербола
-
-  var getFireballSpeed = function(getFireball) {
-  if (getFireball == left) {
-    return 5;
-      } else {
-    return 2;
-      }
+  var getFireballSpeed = function(left) {
+  return  left ? 5: 2;
   }
-    // или так
-    // return (getFireball == left) ? 5: 2;
 
   var getWizardHeight = function () {
     return  (1.337 * wizardWidth);
@@ -208,9 +200,10 @@
   }
 
   var getWizardY = function(height) {
-    return (height/3*2)+getWizardHeight()/2;
+    return height / 3 + getWizardHeight() / 2;
   }
 </script>
+<script src="js/stat.js"></script>
 <script src="js/game.js"></script>
 
 </body>
