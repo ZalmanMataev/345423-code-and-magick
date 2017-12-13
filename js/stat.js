@@ -14,15 +14,14 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Ура вы победили!', 120, 40);
   ctx.fillText('Список результатов:', 120, 65);
 
+  var max = -1;
+  var i;
+  var time;
 
   var getRandomValue = function (minValue, maxValue) {
     return Math.random() * (maxValue - minValue) + minValue;
   };
 
-
-  var max = -1;
-  var i;
-  var time;
   var drawAllBars = function () {
     for (i = 0; i < times.length; i++) {
       drawOneBars();
@@ -38,7 +37,6 @@ window.renderStatistics = function (ctx, names, times) {
     return max;
   };
 
-
   var histogramHeight = 150;
   var widthColumn = 40;
   var interval = 90;
@@ -48,10 +46,14 @@ window.renderStatistics = function (ctx, names, times) {
   var step = histogramHeight / (drawAllBars() - 0);
 
   for (i = 0; i < times.length; i++) {
-    ctx.fillStyle = (names[i] === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'rgba(0, 0, 255, ' + getRandomValue(0.1, 1) + ')';
+    ctx.fillStyle = getColor(names[i]);
     ctx.fillRect(initialX + interval * i, initialY, widthColumn, times[i] * step);
     ctx.fillText(names[i], initialX + interval * i, initialY - (histogramMargin * 3));
     ctx.fillText(Math.floor(times[i]), initialX + interval * i, initialY - histogramMargin);
+  }
+
+  function getColor() {
+    return (names[i] === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'rgba(0, 0, 255, ' + getRandomValue(0.1, 1) + ')';
   }
 };
 
