@@ -19,21 +19,24 @@ window.renderStatistics = function (ctx, names, times) {
     return Math.random() * (maxValue - minValue) + minValue;
   };
 
+
+  var max = -1;
+  var i;
+  var time;
   var drawAllBars = function () {
-    var max = -1;
-    for (var i = 0; i < times.length; i++) {
-      drawAllBars()
+    for (i = 0; i < times.length; i++) {
+      drawOneBars();
     }
     return max;
   };
 
-
-  var drawAllBars = function () {
-    var time = times[i];
+  var drawOneBars = function () {
+    time = times[i];
     if (time > max) {
       max = time;
     }
-  }
+    return max;
+  };
 
 
   var histogramHeight = 150;
@@ -44,7 +47,7 @@ window.renderStatistics = function (ctx, names, times) {
   var histogramMargin = 10;
   var step = histogramHeight / (drawAllBars() - 0);
 
-  for (var i = 0; i < times.length; i++) {
+  for (i = 0; i < times.length; i++) {
     ctx.fillStyle = (names[i] === 'Вы') ? 'rgba(255, 0, 0, 1)' : 'rgba(0, 0, 255, ' + getRandomValue(0.1, 1) + ')';
     ctx.fillRect(initialX + interval * i, initialY, widthColumn, times[i] * step);
     ctx.fillText(names[i], initialX + interval * i, initialY - (histogramMargin * 3));
@@ -52,14 +55,3 @@ window.renderStatistics = function (ctx, names, times) {
   }
 };
 
-
-/*var drawAllBars = function () {
-    var max = -1;
-    for (var i = 0; i < times.length; i++) {
-      var time = times[i];
-      if (time > max) {
-        max = time;
-      }
-    }
-    return max;
-  };*/
